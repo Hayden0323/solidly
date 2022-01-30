@@ -31,9 +31,6 @@ interface erc20 {
 }
 
 library Math {
-    function max(uint a, uint b) internal pure returns (uint) {
-        return a >= b ? a : b;
-    }
     function min(uint a, uint b) internal pure returns (uint) {
         return a < b ? a : b;
     }
@@ -117,7 +114,7 @@ contract BaseV1Router01 {
     }
 
     // performs chained getAmountOut calculations on any number of pairs
-    function getAmountOut(uint amountIn, address tokenIn, address tokenOut) public view returns (uint amount, bool stable) {
+    function getAmountOut(uint amountIn, address tokenIn, address tokenOut) external view returns (uint amount, bool stable) {
         address pair = pairFor(tokenIn, tokenOut, true);
         uint amountStable;
         uint amountVolatile;
@@ -291,7 +288,7 @@ contract BaseV1Router01 {
         uint deadline
     ) public ensure(deadline) returns (uint amountA, uint amountB) {
         address pair = pairFor(tokenA, tokenB, stable);
-        IBaseV1Pair(pair).transferFrom(msg.sender, pair, liquidity); // send liquidity to pair
+        require(IBaseV1Pair(pair).transferFrom(msg.sender, pair, liquidity)); // send liquidity to pair
         (uint amount0, uint amount1) = IBaseV1Pair(pair).burn(to);
         (address token0,) = sortTokens(tokenA, tokenB);
         (amountA, amountB) = tokenA == token0 ? (amount0, amount1) : (amount1, amount0);
