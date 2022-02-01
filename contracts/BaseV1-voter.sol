@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.11;
+pragma solidity 0.8.11;
 
 library Math {
     function max(uint a, uint b) internal pure returns (uint) {
@@ -117,7 +117,7 @@ contract Bribe {
    mapping (address => uint) public rewardPerTokenNumCheckpoints;
 
     // simple re-entrancy check
-    uint _unlocked = 1;
+    uint internal _unlocked = 1;
     modifier lock() {
         require(_unlocked == 1);
         _unlocked = 2;
@@ -507,28 +507,11 @@ contract Bribe {
 
 contract BaseV1Voter {
     address public immutable _ve; // the ve token that governs these contracts
-    address internal immutable factory; // the BaseV1Factory
+    address public immutable factory; // the BaseV1Factory
     address internal immutable base;
-    address internal immutable gaugefactory;
+    address public immutable gaugefactory;
 
     uint public totalWeight; // total voting weight
-
-    event GaugeCreated(address indexed gauge, address creator, address indexed bribe, address indexed pool);
-    event Voted(address indexed voter, uint tokenId, uint weight);
-    event Abstained(uint tokenId, uint weight);
-    event Deposit(address indexed lp, address indexed gauge, uint tokenId, uint amount);
-    event Withdraw(address indexed lp, address indexed gauge, uint tokenId, uint amount);
-    event NotifyReward(address indexed sender, address indexed reward, uint amount);
-    event DistributeReward(address indexed sender, address indexed gauge, uint amount);
-
-    // simple re-entrancy check
-    uint _unlocked = 1;
-    modifier lock() {
-        require(_unlocked == 1);
-        _unlocked = 2;
-        _;
-        _unlocked = 1;
-    }
 
     address[] public pools; // all pools viable for incentives
     mapping(address => address) public gauges; // pool => gauge
@@ -540,11 +523,30 @@ contract BaseV1Voter {
     mapping(uint => uint) public usedWeights;  // nft => total voting weight of user
     mapping(address => bool) public isGauge;
 
+    event GaugeCreated(address indexed gauge, address creator, address indexed bribe, address indexed pool);
+    event Voted(address indexed voter, uint tokenId, uint weight);
+    event Abstained(uint tokenId, uint weight);
+    event Deposit(address indexed lp, address indexed gauge, uint tokenId, uint amount);
+    event Withdraw(address indexed lp, address indexed gauge, uint tokenId, uint amount);
+    event NotifyReward(address indexed sender, address indexed reward, uint amount);
+    event DistributeReward(address indexed sender, address indexed gauge, uint amount);
+    event Attach(address indexed owner, address indexed gauge, uint tokenId);
+    event Detach(address indexed owner, address indexed gauge, uint tokenId);
+
     constructor(address __ve, address _factory, address  _gauges) {
         _ve = __ve;
         factory = _factory;
         base = ve(__ve).token();
         gaugefactory = _gauges;
+    }
+
+    // simple re-entrancy check
+    uint internal _unlocked = 1;
+    modifier lock() {
+        require(_unlocked == 1);
+        _unlocked = 2;
+        _;
+        _unlocked = 1;
     }
 
     function reset(uint _tokenId) external {
@@ -556,7 +558,7 @@ contract BaseV1Voter {
     function _reset(uint _tokenId) internal {
         address[] storage _poolVote = poolVote[_tokenId];
         uint _poolVoteCnt = _poolVote.length;
-        uint _totalWeigth = 0;
+        uint _totalWeight = 0;
 
         for (uint i = 0; i < _poolVoteCnt; i ++) {
             address _pool = _poolVote[i];
@@ -564,14 +566,14 @@ contract BaseV1Voter {
 
             if (_votes > 0) {
                 _updateFor(gauges[_pool]);
-                _totalWeigth += _votes;
+                _totalWeight += _votes;
                 weights[_pool] -= _votes;
                 votes[_tokenId][_pool] -= _votes;
                 Bribe(bribes[gauges[_pool]])._withdraw(_votes, _tokenId);
                 emit Abstained(_tokenId, _votes);
             }
         }
-        totalWeight -= _totalWeigth;
+        totalWeight -= _totalWeight;
         usedWeights[_tokenId] = 0;
         delete poolVote[_tokenId];
     }
@@ -643,15 +645,25 @@ contract BaseV1Voter {
         return _gauge;
     }
 
-    function attachTokenToGauge(uint tokenId, address account, uint amount) external {
+    function attachTokenToGauge(uint tokenId, address account) external {
         require(isGauge[msg.sender]);
         if (tokenId > 0) ve(_ve).attach(tokenId);
+        emit Attach(account, msg.sender, tokenId);
+    }
+
+    function emitDeposit(uint tokenId, address account, uint amount) external {
+        require(isGauge[msg.sender]);
         emit Deposit(account, msg.sender, tokenId, amount);
     }
 
-    function detachTokenFromGauge(uint tokenId, address account, uint amount) external {
+    function detachTokenFromGauge(uint tokenId, address account) external {
         require(isGauge[msg.sender]);
         if (tokenId > 0) ve(_ve).detach(tokenId);
+        emit Detach(account, msg.sender, tokenId);
+    }
+
+    function emitWithdraw(uint tokenId, address account, uint amount) external {
+        require(isGauge[msg.sender]);
         emit Withdraw(account, msg.sender, tokenId, amount);
     }
 

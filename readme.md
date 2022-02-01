@@ -182,10 +182,24 @@ function distribute(address token) external
 
 | Name | Address |
 | :--- | :--- |
-| BaseV1Factory | [0xd231865CE0eDB0079F0D0d7BB2E647458aa60d11](https://testnet.ftmscan.com/address/0xd231865CE0eDB0079F0D0d7BB2E647458aa60d11#code) |
-| BaseV1GaugesFactory | [0x1649BE15FeA4F94075CC69c3502B1Ba4C341bBEa](https://testnet.ftmscan.com/address/0x1649BE15FeA4F94075CC69c3502B1Ba4C341bBEa#code) ||
-| BaseV1Voter | [0xd2F7fF8e5b362bafE2b57a82c5865B4355F884Ae](https://testnet.ftmscan.com/address/0xd2F7fF8e5b362bafE2b57a82c5865B4355F884Ae#code) |
-| BaseV1Router01 | [0x22460Cd07159EC690166860f15966C1446ED762B](https://testnet.ftmscan.com/address/0x22460Cd07159EC690166860f15966C1446ED762B#code) |
-| ve3 | [0xBE6bb6d9F4B1Bc2Ea1C0d69a17471b98bd164ab6](https://testnet.ftmscan.com/address/0xBE6bb6d9F4B1Bc2Ea1C0d69a17471b98bd164ab6#code) |
-| ve3-dist | [0x4Dc46A325B141751E09871279F9c7Fe214DA422C](https://testnet.ftmscan.com/address/0x4Dc46A325B141751E09871279F9c7Fe214DA422C#code) |
-| BaseV1Minter | [0x3230F944a26288f49F5010b11BA96b0b9dC84e79](https://testnet.ftmscan.com/address/0x3230F944a26288f49F5010b11BA96b0b9dC84e79#code) |
+| BaseV1Factory | [0xff81f7b1F18E7B0Af0cE970f3dA7763e7bED3fe5](https://testnet.ftmscan.com/address/0xff81f7b1F18E7B0Af0cE970f3dA7763e7bED3fe5#code) |
+| BaseV1GaugesFactory | [0xf6555439d27eA5e0CBefF0e10e8C479A58147bee](https://testnet.ftmscan.com/address/0xf6555439d27eA5e0CBefF0e10e8C479A58147bee#code) ||
+| BaseV1Router01 | [0xC9f92bF3add3d462b9f0d937Fff4878e076beE09](https://testnet.ftmscan.com/address/0xC9f92bF3add3d462b9f0d937Fff4878e076beE09#code) |
+| BaseV1Voter | [0x571f572D6046A9CEF7B7f629D79cF8cFf6E164E5](https://testnet.ftmscan.com/address/0x571f572D6046A9CEF7B7f629D79cF8cFf6E164E5#code) |
+| veNFT | [0xDd49111B9208bDFaF62dA69fe9799736FF4C4587](https://testnet.ftmscan.com/address/0xDd49111B9208bDFaF62dA69fe9799736FF4C4587#code) |
+| veNFT-dist | [0x7B4Ce50292E57a2a08DaF1AEAEdF53cE3F50c9a7](https://testnet.ftmscan.com/address/0x7B4Ce50292E57a2a08DaF1AEAEdF53cE3F50c9a7#code) |
+| BaseV1Minter | [0x2ee410D7b07717cF52d524EDd1aa7964d3D84Ce6](https://testnet.ftmscan.com/address/0x2ee410D7b07717cF52d524EDd1aa7964d3D84Ce6#code) |
+
+### Mainnet RC0.0
+
+| Name | Address |
+| :--- | :--- |
+| wFTM| [0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83](https://ftmscan.com/address/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83#code) |
+| Solid | [0xBB5298e572519DaE7784f533B5E76F37855b1A4A](https://ftmscan.com/address/0xBB5298e572519DaE7784f533B5E76F37855b1A4A#code) |
+| BaseV1Factory | [0x117F6F61e797E411Ea92F0ea1555c397Ecf17939](https://ftmscan.com/address/0x117F6F61e797E411Ea92F0ea1555c397Ecf17939#code) |
+| BaseV1GaugesFactory | [0xb8F4176Ed6f251fF24F50d17A3BFA6852FeF13bD](https://ftmscan.com/address/0xb8F4176Ed6f251fF24F50d17A3BFA6852FeF13bD#code) ||
+| BaseV1Router01 | [0xCAE00F31F7cB5A78450Ca119fc2D0e7bbaEF0439](https://ftmscan.com/address/0xCAE00F31F7cB5A78450Ca119fc2D0e7bbaEF0439#code) |
+| BaseV1Voter | [0xfF61f4aC23a3d8b5D1f21C231282A96deF3855D6](https://ftmscan.com/address/0xfF61f4aC23a3d8b5D1f21C231282A96deF3855D6#code) |
+| veNFT | [0xC34A4644Bb1deea88e4045Ce3C38A0261E41FC9f](https://ftmscan.com/address/0xC34A4644Bb1deea88e4045Ce3C38A0261E41FC9f#code) |
+| veNFT-dist | [0xA4229Db9b0bAB36b212ABe09C4Be1b76E5629906](https://ftmscan.com/address/0xA4229Db9b0bAB36b212ABe09C4Be1b76E5629906#code) |
+| BaseV1Minter | [0x5778F4c3AC8A26Bf44cEc570b2b5536B148475B8](https://ftmscan.com/address/0x5778F4c3AC8A26Bf44cEc570b2b5536B148475B8#code) |

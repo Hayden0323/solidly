@@ -385,15 +385,31 @@ describe("core", function () {
     expect(await gauge.earned(ve.address, owner.address)).to.equal(0);
   });
 
+  it("veNFT gauge manipulate", async function () {
+    const pair_1000 = ethers.BigNumber.from("1000000000");
+    expect(await gauge.tokenIds(owner.address)).to.equal(0);
+    await pair.approve(gauge.address, pair_1000);
+    await gauge.deposit(pair_1000, 1);
+    expect(await gauge.tokenIds(owner.address)).to.equal(1);
+    await pair.approve(gauge.address, pair_1000);
+    await gauge.deposit(pair_1000, 2);
+    expect(await gauge.tokenIds(owner.address)).to.equal(1);
+    await gauge.withdrawToken(0, 2);
+    expect(await gauge.tokenIds(owner.address)).to.equal(1);
+    await gauge.withdrawToken(0, 1);
+    expect(await gauge.tokenIds(owner.address)).to.equal(0);
+  });
+
+
   it("deploy BaseV1Factory gauge owner2", async function () {
     const pair_1000 = ethers.BigNumber.from("1000000000");
-    const pair_2000 = ethers.BigNumber.from("2000000000");
+    const pair_4000 = ethers.BigNumber.from("4000000000");
 
     await pair.connect(owner2).approve(gauge.address, pair_1000);
     await pair.connect(owner2).approve(staking.address, pair_1000);
     await gauge.connect(owner2).deposit(pair_1000, 0);
     await staking.connect(owner2).stake(pair_1000);
-    expect(await gauge.totalSupply()).to.equal(pair_2000);
+    expect(await gauge.totalSupply()).to.equal(pair_4000);
     expect(await gauge.earned(ve.address, owner2.address)).to.equal(0);
   });
 
@@ -599,6 +615,7 @@ describe("core", function () {
   it("minter mint", async function () {
     console.log(await ve_dist.last_token_time());
     console.log(await ve_dist.timestamp());
+    await minter.initialize([owner.address],[ethers.BigNumber.from("1000000000000000000")], ethers.BigNumber.from("1000000000000000000"));
     await minter.update_period();
     await gauge_factory.updateGauge(gauge.address);
     console.log(await ve_underlying.balanceOf(ve_dist.address));
