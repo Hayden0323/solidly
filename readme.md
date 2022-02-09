@@ -2,6 +2,8 @@
 
 ![alt text](header.png)
 
+[![codecov](https://codecov.io/gh/andrecronje/solidly/branch/master/graph/badge.svg?token=8AZBHZII04)](https://codecov.io/gh/andrecronje/solidly)
+
 
 Solidly allows low cost, near 0 slippage trades on uncorrelated or tightly correlated assets. The protocol incentivizes fees instead of liquidity. Liquidity providers (LPs) are given incentives in the form of `token`, the amount received is calculated as follows;
 
@@ -178,17 +180,18 @@ function distribute(address token) external
 | wFTM| [0x27Ce41c3cb9AdB5Edb2d8bE253A1c6A64Db8c96d](https://testnet.ftmscan.com/address/0x27Ce41c3cb9AdB5Edb2d8bE253A1c6A64Db8c96d#code) |
 | USDT| [0x8ad96050318043166114884b59E2fc82210273b3](https://testnet.ftmscan.com/address/0x8ad96050318043166114884b59E2fc82210273b3#code) |
 | MIM | [0x976e33B07565b0c05B08b2e13AfFD3113e3D178d](https://testnet.ftmscan.com/address/0x976e33B07565b0c05B08b2e13AfFD3113e3D178d#code) |
-| BaseV1 | [0x0673e1CF8EE91095232CFC98Ee1EbCeF42A1977E](https://testnet.ftmscan.com/address/0x0673e1CF8EE91095232CFC98Ee1EbCeF42A1977E#code) |
+| Solid | [0x0DB76C03fFF8F9f8d6600ca1f9aC004FDB73d442](https://testnet.ftmscan.com/address/0x0DB76C03fFF8F9f8d6600ca1f9aC004FDB73d442#code) |
 
 | Name | Address |
 | :--- | :--- |
-| BaseV1Factory | [0xff81f7b1F18E7B0Af0cE970f3dA7763e7bED3fe5](https://testnet.ftmscan.com/address/0xff81f7b1F18E7B0Af0cE970f3dA7763e7bED3fe5#code) |
-| BaseV1GaugesFactory | [0xf6555439d27eA5e0CBefF0e10e8C479A58147bee](https://testnet.ftmscan.com/address/0xf6555439d27eA5e0CBefF0e10e8C479A58147bee#code) ||
-| BaseV1Router01 | [0xC9f92bF3add3d462b9f0d937Fff4878e076beE09](https://testnet.ftmscan.com/address/0xC9f92bF3add3d462b9f0d937Fff4878e076beE09#code) |
-| BaseV1Voter | [0x571f572D6046A9CEF7B7f629D79cF8cFf6E164E5](https://testnet.ftmscan.com/address/0x571f572D6046A9CEF7B7f629D79cF8cFf6E164E5#code) |
-| veNFT | [0xDd49111B9208bDFaF62dA69fe9799736FF4C4587](https://testnet.ftmscan.com/address/0xDd49111B9208bDFaF62dA69fe9799736FF4C4587#code) |
-| veNFT-dist | [0x7B4Ce50292E57a2a08DaF1AEAEdF53cE3F50c9a7](https://testnet.ftmscan.com/address/0x7B4Ce50292E57a2a08DaF1AEAEdF53cE3F50c9a7#code) |
-| BaseV1Minter | [0x2ee410D7b07717cF52d524EDd1aa7964d3D84Ce6](https://testnet.ftmscan.com/address/0x2ee410D7b07717cF52d524EDd1aa7964d3D84Ce6#code) |
+| BaseV1Factory | [0x7dbA586e00D868EeFA13fC549B63D62b4a45a244](https://testnet.ftmscan.com/address/0x7dbA586e00D868EeFA13fC549B63D62b4a45a244#code) |
+| BaseV1BribeFactory | [0xEc41c3165bc34eb5BDC66043FE3ac14617e4121c](https://testnet.ftmscan.com/address/0xEc41c3165bc34eb5BDC66043FE3ac14617e4121c#code) |
+| BaseV1GaugesFactory | [0x3CE2B6952be35024411F6dE5A8626aA052E81C06](https://testnet.ftmscan.com/address/0x3CE2B6952be35024411F6dE5A8626aA052E81C06#code) |
+| BaseV1Router01 | [0xD1D173c5d1de3175B32d3dDCB265BD00Ea9fEDf5](https://testnet.ftmscan.com/address/0xD1D173c5d1de3175B32d3dDCB265BD00Ea9fEDf5#code) |
+| BaseV1Voter | [0xDA0eBF84F7A52A06EaeB0409F139D6442262F056](https://testnet.ftmscan.com/address/0xDA0eBF84F7A52A06EaeB0409F139D6442262F056#code) |
+| veNFT | [0x74a91F1cEe46A20f5a15183aB54AEe89b015C21f](https://testnet.ftmscan.com/address/0x74a91F1cEe46A20f5a15183aB54AEe89b015C21f#code) |
+| veNFT-dist | [0xACCF9d3b4084f85540D24e0aad0bE2c5F13BCDE2](https://testnet.ftmscan.com/address/0xACCF9d3b4084f85540D24e0aad0bE2c5F13BCDE2#code) |
+| BaseV1Minter | [0x17C2074bb32d2B532ab479b6815ca1B50ff00024](https://testnet.ftmscan.com/address/0x17C2074bb32d2B532ab479b6815ca1B50ff00024#code) |
 
 ### Mainnet RC0.0
 
@@ -197,9 +200,21 @@ function distribute(address token) external
 | wFTM| [0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83](https://ftmscan.com/address/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83#code) |
 | Solid | [0xBB5298e572519DaE7784f533B5E76F37855b1A4A](https://ftmscan.com/address/0xBB5298e572519DaE7784f533B5E76F37855b1A4A#code) |
 | BaseV1Factory | [0x117F6F61e797E411Ea92F0ea1555c397Ecf17939](https://ftmscan.com/address/0x117F6F61e797E411Ea92F0ea1555c397Ecf17939#code) |
-| BaseV1GaugesFactory | [0xb8F4176Ed6f251fF24F50d17A3BFA6852FeF13bD](https://ftmscan.com/address/0xb8F4176Ed6f251fF24F50d17A3BFA6852FeF13bD#code) ||
+| BaseV1GaugesFactory | [0xb8F4176Ed6f251fF24F50d17A3BFA6852FeF13bD](https://ftmscan.com/address/0xb8F4176Ed6f251fF24F50d17A3BFA6852FeF13bD#code) |
 | BaseV1Router01 | [0xCAE00F31F7cB5A78450Ca119fc2D0e7bbaEF0439](https://ftmscan.com/address/0xCAE00F31F7cB5A78450Ca119fc2D0e7bbaEF0439#code) |
 | BaseV1Voter | [0xfF61f4aC23a3d8b5D1f21C231282A96deF3855D6](https://ftmscan.com/address/0xfF61f4aC23a3d8b5D1f21C231282A96deF3855D6#code) |
 | veNFT | [0xC34A4644Bb1deea88e4045Ce3C38A0261E41FC9f](https://ftmscan.com/address/0xC34A4644Bb1deea88e4045Ce3C38A0261E41FC9f#code) |
 | veNFT-dist | [0xA4229Db9b0bAB36b212ABe09C4Be1b76E5629906](https://ftmscan.com/address/0xA4229Db9b0bAB36b212ABe09C4Be1b76E5629906#code) |
 | BaseV1Minter | [0x5778F4c3AC8A26Bf44cEc570b2b5536B148475B8](https://ftmscan.com/address/0x5778F4c3AC8A26Bf44cEc570b2b5536B148475B8#code) |
+
+## Security
+
+- [Immunefi Bug Bounty Program](https://immunefi.com/bounty/solidly/)  
+- [Bug Bounty Program](https://github.com/andrecronje/solidly/blob/master/SECURITY.md)  
+
+* [MythX: voter.sol](https://github.com/andrecronje/solidly/blob/master/audits/17faf962f99a7e7e3f26f8bc.pdf)
+* [MythX: ve.sol](https://github.com/andrecronje/solidly/blob/master/audits/4094394a6bc512d57672533c.pdf)
+* [MythX: gauges.sol](https://github.com/andrecronje/solidly/blob/master/audits/4212b799deea3d9dd8f8620e.pdf)
+* [MythX: core.sol](https://github.com/andrecronje/solidly/blob/master/audits/79effbd69276f2d16698b72d.pdf)
+* [MythX: minter.sol](https://github.com/andrecronje/solidly/blob/master/audits/dea98051d23c85bcaa80dc5a.pdf)
+* [PeckShield](https://github.com/andrecronje/solidly/blob/master/audits/e456a816-3802-4384-894c-825a4177245a.pdf)
